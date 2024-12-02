@@ -52,7 +52,7 @@ void CheckAVL(std::string path, std::vector<int> keys)
     for (size_t i = 0; i < keys.size(); i++)
     {
         avlt.insert(keys[i], value);
-        file << (i + 1) << "," << avlt.getHeight(avlt.head);
+        file << (i + 1) << "," << avlt.getHeight(avlt.head) << "\n";
 
         //if (true) { std::cout << "Keys=" << i + 1 << " bst height=" << avlt.getHeight(avlt.head) << std::endl; }
     }
@@ -79,7 +79,7 @@ void CheckRB(std::string path, std::vector<int> keys)
     for (size_t i = 0; i < keys.size(); i++)
     {
         rbt.insert(keys[i], value);
-        file << (i + 1) << "," << rbt.getHeight(rbt.head);
+        file << (i + 1) << "," << rbt.getHeight(rbt.head) << "\n";
 
         //if (i % 50 == 0) { std::cout << "Keys=" << i + 1 << " rbt height=" << rbt.getHeight(rbt.head) << std::endl; }
     }
