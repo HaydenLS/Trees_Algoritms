@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <iomanip>
+#include <queue>
 #include "Node.h"
 
 
@@ -195,6 +196,9 @@ public:
 			return search(key, node->right);
 
 	}
+
+	// Get Height Methods
+	// Метод получения высоты (рекурсия)
 	int getHeight(Node<T>* node)
 	{
 		if (node == nullptr)
@@ -205,7 +209,39 @@ public:
 
 		return 1 + std::max(heightLeft, heightRight);
 	}
+	// Метод получения высоты (процедурно)
+	int getHeight_proc(Node<T>* root) {
+		if (head == nullptr) {
+			return 0;
+		}
 
+		std::queue<Node<T>*> q;
+		q.push(head);
+
+		int height = 0;
+
+		
+		while (!q.empty()) {
+			int levelSize = q.size();
+			++height;
+
+			// Обрабатываем все узлы текущего уровня
+			for (int i = 0; i < levelSize; ++i) {
+				Node<T>* current = q.front();
+				q.pop();
+
+				// Добавляем детей текущего узла в очередь
+				if (current->left != nullptr) {
+					q.push(current->left);
+				}
+				if (current->right != nullptr) {
+					q.push(current->right);
+				}
+			}
+		}
+
+		return height;
+	}
 
 	// ---- Walks
 	// Симметричный обход дерева.

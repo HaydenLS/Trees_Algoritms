@@ -52,7 +52,7 @@ void CheckAVL(std::string path, std::vector<int> keys)
     for (size_t i = 0; i < keys.size(); i++)
     {
         avlt.insert(keys[i], value);
-        file << (i + 1) << "," << avlt.getHeight(avlt.head) << "\n";
+        file << (i + 1) << "," << avlt.head->height << "\n";
 
         //if (true) { std::cout << "Keys=" << i + 1 << " bst height=" << avlt.getHeight(avlt.head) << std::endl; }
     }
